@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d0b">
+  <meta name="description" content="Daffodil Studio. Waterproof gold jewelry, tested on me first. Coming soon.">
+  <title>Coming Soon | Daffodil Studio</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --black: #100d0b;
+      --black-soft: #181310;
+      --gold: #d8b67b;
+      --gold-bright: #f3d7a1;
+      --cream: #f8efe0;
+      --muted: #b8aa97;
+      --line: rgba(216, 182, 123, .25);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      background:
+        radial-gradient(ellipse 55% 40% at 50% 44%, rgba(137, 91, 42, .105), transparent 85%),
+        radial-gradient(ellipse 45% 50% at 5% 100%, rgba(139, 91, 47, .08), transparent 88%),
+        radial-gradient(ellipse 35% 45% at 100% 0, rgba(145, 99, 50, .06), transparent 85%),
+        #100d0b;
+      color: var(--cream);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .24;
+      background-image: repeating-linear-gradient(115deg, transparent 0, transparent 38px, rgba(255,255,255,.009) 39px, transparent 41px);
+      z-index: 0;
+    }
+    .shell {
+      min-height: 100vh;
+      min-height: 100svh;
+      width: min(100%, 1180px);
+      margin-inline: auto;
+      padding: clamp(26px, 5vh, 55px) 24px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .shell::before, .shell::after {
+      content: '';
+      height: 1px;
+      width: clamp(62px, 9vw, 100px);
+      position: absolute;
+      top: 47px;
+      background: linear-gradient(90deg, transparent, rgba(221,188,132,.35), transparent);
+    }
+    .shell::before { left: 24px; }
+    .shell::after { right: 24px; }
+    .brand {
+      width: min(340px, 72vw);
+      height: 220px;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+    }
+    .brand img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 25px rgba(203, 150, 70, .10));
+    }
+    main {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero {
+      width: min(100%, 770px);
+      padding: clamp(22px, 4vh, 48px) 0 clamp(36px, 6vh, 75px);
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .32em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 42px;
+      background: linear-gradient(90deg, transparent, var(--line));
+    }
+    .eyebrow::after { transform: rotate(180deg); }
+    h1 {
+      margin: 25px 0 19px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(3.4rem, 7.15vw, 6.3rem);
+      font-weight: 400;
+      line-height: 1.06;
+      letter-spacing: -.048em;
+    }
+    h1 span { display: block; }
+    h1 em {
+      color: var(--gold-bright);
+      font-weight: 400;
+      font-style: italic;
+    }
+    .subhead {
+      font-size: clamp(.99rem, 1.8vw, 1.15rem);
+      font-weight: 300;
+      line-height: 1.7;
+      color: #d4c6b3;
+      margin: 0 auto;
+      max-width: 470px;
+      letter-spacing: .016em;
+    }
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin: 38px auto 35px;
+      color: var(--gold);
+      opacity: .9;
+    }
+    .ornament .line { width: 54px; height: 1px; background: var(--line); }
+    .ornament .sparkle { font-size: 22px; line-height: 1; font-family: Georgia, serif; }
+    .signup { width: min(100%, 480px); margin: 0 auto; }
+    .signup-label {
+      font-size: 13px;
+      color: var(--cream);
+      letter-spacing: .025em;
+      margin: 0 0 16px;
+    }
+    form {
+      display: flex;
+      gap: 8px;
+      padding: 6px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(216, 182, 123, .38);
+      border-radius: 999px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 10px 35px rgba(0,0,0,.16);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    form:focus-within { border-color: var(--gold-bright); box-shadow: 0 0 0 3px rgba(216,182,123,.12); }
+    input[type="email"] {
+      min-width: 0;
+      width: 100%;
+      flex: 1;
+      color: var(--cream);
+      font: inherit;
+      font-size: 15px;
+      padding: 12px 13px 12px 20px;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      border-radius: 999px;
+    }
+    input::placeholder { color: #a99a88; opacity: 1; }
+    button {
+      flex: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 26px;
+      background: linear-gradient(135deg, #f6dca7 0%, #d8b478 55%, #c49a5f 100%);
+      color: #21160e;
+      font: 650 13px/1.3 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      letter-spacing: .025em;
+      cursor: pointer;
+      transition: filter .2s, transform .2s;
+    }
+    button:hover { filter: brightness(1.10); transform: translateY(-1px); }
+    button:active { transform: translateY(0); }
+    button:disabled { opacity: .6; cursor: progress; }
+    .form-status {
+      margin: 12px 0 0;
+      color: #d7c2a1;
+      min-height: 1.3em;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    footer {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      padding-bottom: 6px;
+    }
+    .instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #dfc69b;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: .04em;
+      transition: color .2s;
+    }
+    .instagram:hover { color: #fff0cf; }
+    .instagram svg { height: 17px; width: 17px; fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
+    .copyright { color: #8b7c6d; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+    :focus-visible { outline: 2px solid #f5d69b; outline-offset: 4px; }
+    @media (max-width: 600px) {
+      .shell { padding: 22px 20px 25px; }
+      .shell::before, .shell::after { top: 35px; width: 36px; }
+      .shell::before { left: 17px; }
+      .shell::after { right: 17px; }
+      .brand { width: min(270px, 76vw); height: 175px; }
+      .hero { padding: 23px 0 38px; }
+      h1 { font-size: clamp(3.25rem, 12vw, 4.9rem); margin-top: 23px; }
+      .eyebrow { font-size: 10px; letter-spacing: .26em; }
+      .eyebrow::before, .eyebrow::after { width: 24px; }
+      .subhead { max-width: 320px; }
+      .ornament { margin: 32px 0; }
+      button { padding: 13px 21px; }
+      input[type="email"] { padding-left: 14px; font-size: 14px; }
+    }
+    @media (max-width: 370px) {
+      .shell { padding-inline: 14px; }
+      h1 { font-size: 3rem; }
+      form { gap: 4px; padding: 5px; }
+      button { padding-inline: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <!-- Place your logo image in the same folder as this HTML file, named logo.png. -->
+      <div class="brand"><img src="logo.png" alt="Daffodil Studio" width="320" height="180"></div>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="eyebrow">Coming soon</div>
+        <h1 id="hero-title"><span>Gold that <em>stays.</em></span><span>In your size.</span></h1>
+        <p class="subhead">Waterproof gold jewelry, tested on me first.</p>
+        <div class="ornament" aria-hidden="true"><span class="line"></span><span class="sparkle">✧</span><span class="line"></span></div>
+        <div class="signup">
+          <p class="signup-label">Be first to know when we launch.</p>
+          <form id="signup-form" novalidate>
+            <label for="email" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Email address</label>
+            <input id="email" name="email" type="email" placeholder="Your email address" autocomplete="email" inputmode="email" required aria-describedby="form-status">
+            <button type="submit">Notify me</button>
+          </form>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="instagram" href="https://www.instagram.com/daffodilstudio.shop/" target="_blank" rel="noopener noreferrer" aria-label="Find Daffodil Studio on Instagram, @daffodilstudio.shop">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.1"></circle><circle cx="18" cy="6.5" r=".9" fill="currentColor" stroke="none"></circle></svg>
+        @daffodilstudio.shop
+      </a>
+      <span class="copyright">Daffodil Studio · Made to be worn, made to last</span>
+    </footer>
+  </div>
+  <script>
+    // To activate email signups, paste your Formspree form URL below.
+    // Example: 'https://formspree.io/f/xxxxxxxx'
+    // Create a form at https://formspree.io/ and configure its email settings there.
+    const SIGNUP_ENDPOINT = '';
+    const form = document.getElementById('signup-form');
+    const status = document.getElementById('form-status');
+    const button = form.querySelector('button');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      status.textContent = '';
+      const email = form.elements.email;
+      if (!email.checkValidity()) {
+        status.textContent = 'Please enter a valid email address.';
+        email.focus();
+        return;
+      }
+      if (!SIGNUP_ENDPOINT) {
+        status.textContent = 'Email signups aren’t live yet. Please check back soon.';
+        return;
+      }
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      try {
+        const result = await fetch(SIGNUP_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (!result.ok) throw new Error('Signup failed');
+        status.textContent = 'You’re on the list. See you soon!';
+        form.reset();
+      } catch (_) {
+        status.textContent = 'Something went wrong. Please try again in a moment.';
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Notify me';
+      }
+    });
+  </script>
+</body>
+</html>
